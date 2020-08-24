@@ -20,7 +20,7 @@ public class HealthController {
 	  @GetMapping(value = "ping", produces = "application/json" )
 	  public ResponseEntity ping() {
 
-		  System.out.print("testing...");
+		  System.out.println("testing...");
 		  return new ResponseEntity<>(new MessageDto("pong"), HttpStatus.OK);
 	  }
 }
