@@ -2,3 +2,8 @@ server:
    port: 8022
    servlet: 
       context-path: /ssdemo/
+      
+azure:
+   activedirectory:
+      client-id: 'DFGSDFGTRDFGRDFGTRDFGHRFG' ## ${AD_APP_CLIENT_ID}
+      session-stateless: true

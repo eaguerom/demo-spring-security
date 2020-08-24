@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.MessageDto;
 
 @RestController
-@RequestMapping("demo")
-public class DemoController {
-
+@RequestMapping("test")
+public class TestController {
 
 	@GetMapping(value="one", produces = "application/json" )
 	public ResponseEntity test() {
-		return new ResponseEntity(new MessageDto("Hola Migue"), HttpStatus.OK);
+
+		System.out.print("testing...");
+		return new ResponseEntity(new MessageDto("testing..."), HttpStatus.OK);
 	}
 }
