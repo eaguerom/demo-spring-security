@@ -25,7 +25,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable()
 			.addFilterAfter(new AuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class)
 			.authorizeRequests()
-			.antMatchers(HttpMethod.GET, "/health/ping").permitAll()
 			.anyRequest().authenticated();
 	}
 	
