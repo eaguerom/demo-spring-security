@@ -24,8 +24,11 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
 
 		try {
 			if (validateToken(request)) {
-				UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(new String("valid!"),
-						null, null);
+				UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
+						new String("valid!"),
+						null, 
+						null);
+
 				SecurityContextHolder.getContext().setAuthentication(auth);
 			} else {
 				SecurityContextHolder.clearContext();
@@ -35,11 +38,9 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
 			response.setStatus(HttpServletResponse.SC_FORBIDDEN);
 			((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN, e.getMessage());
 		}
-
 	}
 
 	private boolean validateToken(HttpServletRequest request) {
-
 		String authenticationHeader = request.getHeader(HEADER);
 		if (authenticationHeader == null || !authenticationHeader.startsWith(PREFIX)) {
 			return false;
@@ -51,5 +52,4 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
 			return token.equals("123456");
 		}
 	}
-
 }
